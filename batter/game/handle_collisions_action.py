@@ -28,5 +28,7 @@ class HandleCollisionsAction(Action):
 
         #Creat for loop for paddle ball collision
         if ball.get_position().get_x() == constants.MAX_X - 1 or ball.get_position().get_x() == 1:
-                #redirect ball
-                ball.set_velocity(ball.get_velocity().get_x())
+            #redirect ball
+            ball.set_velocity(ball.get_velocity().get_x())
+        elif ball.get_position().get_y() == 1:
+            ball.set_velocity(ball.get_velocity().get_y())
