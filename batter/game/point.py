@@ -71,7 +71,7 @@ class Point:
         """Gets a new Point that is the reverse of this one.
         
         Returns:
-            Point: A new Point that is reversed.
+            Point: A  new Point that is reversed.
         """
         x = self._x * -1
         y = self._y * -1

@@ -74,7 +74,7 @@ class Actor:
         """Updates the actor's text to the given value.
         
         Args:
-            text (string): The given value.
+            text  (string): The given value.
         """
         self._text = text
 

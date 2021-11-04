@@ -23,7 +23,7 @@ class InputService:
         self._keys[100] = Point(1, 0) # d Right
         
     def get_direction(self):
-        """Gets the selected direction for the given player.
+        """Gets the  selected direction for the given player.
 
         Returns:
             Point: The selected direction.

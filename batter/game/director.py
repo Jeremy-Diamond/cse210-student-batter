@@ -17,7 +17,7 @@ class Director:
         """The class constructor.
         
         Args:
-            cast (dict): The game actors {key: tag, value: list}.
+            cast (dict):  The game actors {key: tag, value: list}.
             script (dict): The game actions {key: tag, value: list}.
         """
         self._cast = cast
