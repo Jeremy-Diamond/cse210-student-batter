@@ -23,6 +23,8 @@ class HandleCollisionsAction(Action):
             if brick.get_position().equals(ball.get_position()):                 
                 #delete brick and redirect ball
                 bricks.remove(brick)
+                ball.set_velocity(ball.get_velocity().get_y())
+                break
 
         #Creat for loop for paddle ball collision
                 #redirect ball
