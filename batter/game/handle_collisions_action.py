@@ -19,10 +19,10 @@ class HandleCollisionsAction(Action):
         ball = cast["ball"][0] # there's only one
         bricks = cast["brick"]
         #marquee.set_text("")
-        for brick  in bricks:
-            if brick.get_position().equals(ball.get_position()):
-                pass 
+        for brick in bricks:
+            if brick.get_position().equals(ball.get_position()):                 
                 #delete brick and redirect ball
+                bricks.remove(brick)
 
         #Creat for loop for paddle ball collision
                 #redirect ball
