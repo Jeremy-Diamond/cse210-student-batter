@@ -1,7 +1,14 @@
 import sys
+
+from pyfiglet import DEFAULT_FONT
 from game import constants
 from game.action import Action
 from game.point import Point
+from asciimatics.effects import Cycle, Stars
+from asciimatics.renderers import FigletText
+from asciimatics.scene import Scene
+from asciimatics.screen import Screen
+
 
 class MoveActorsAction(Action):
     """A code template for moving actors. The responsibility of this class of
@@ -43,8 +50,22 @@ class MoveActorsAction(Action):
             y2 = y2 * -1
         if x1 == 5 or x1 == constants.MAX_X -5: #left and right walls
             x2 = x2 * -1 
-        if y1 == constants.MAX_Y + 5:            
-            y2 = y2 * -1                        #REPLACE TEST CODE WITH END OF GAME
+        if y1 == constants.MAX_Y:                      
+            # y2 = y2 * -1  
+            def demo(screen):
+                effects = [
+                    Cycle(
+                        screen,
+                        FigletText("GAME", font='big'),
+                        int(screen.height / 2 - 8)),
+                    Cycle(
+                        screen,
+                        FigletText("OVER!", font='big'),
+                        int(screen.height / 2 + 3)),
+                    Stars(screen, 200)
+                ]
+                screen.play([Scene(effects, 500)])
+            Screen.wrapper(demo)
            
         velocity = Point(x2,y2)
         x = 1 + (x1 + x2 - 1) #% (constants.MAX_X - 1) #NEED TO EDIT TO MAKE WALLS
