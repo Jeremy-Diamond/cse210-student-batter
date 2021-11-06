@@ -1,3 +1,4 @@
+import sys
 from game import constants
 from game.action import Action
 from game.point import Point
@@ -38,7 +39,18 @@ class MoveActorsAction(Action):
         y1 = position.get_y()
         x2 = velocity.get_x()
         y2 = velocity.get_y()
-        x = 1 + (x1 + x2 - 1) % (constants.MAX_X - 1) #NEED TO EDIT TO MAKE WALLS
-        y = 1 + (y1 + y2 - 1) % (constants.MAX_Y - 1) #NEED TO EDIT TO MAKE WALLS
+        if y1 == 2:                             # cealing
+            y2 = y2 * -1
+        if x1 == 5 or x1 == constants.MAX_X -5: #left and right walls
+            x2 = x2 * -1 
+        if y1 == constants.MAX_Y + 5:            
+            y2 = y2 * -1                        #REPLACE TEST CODE WITH END OF GAME
+           
+        velocity = Point(x2,y2)
+        x = 1 + (x1 + x2 - 1) #% (constants.MAX_X - 1) #NEED TO EDIT TO MAKE WALLS
+        y = 1 + (y1 + y2 - 1) #% (constants.MAX_Y - 1) #NEED TO EDIT TO MAKE WALLS
         position = Point(x, y)
         actor.set_position(position)
+        actor.set_velocity(velocity)
+
+    
