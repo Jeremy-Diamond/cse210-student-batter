@@ -34,14 +34,29 @@ class HandleCollisionsAction(Action):
 
         #Creat for loop for paddle ball collision
        
+        paddle_position_x = paddle.get_position().get_x()
+        paddle_position_y = paddle.get_position().get_y()
+        ball_position_x = ball.get_position().get_x()
+        ball_position_y = ball.get_position().get_y()
         
 
-        if paddle.get_position().equals(ball.get_position()):
+        if paddle_position_y == ball_position_y:
+            for paddle_piece in range(11):
+                paddle_piece_x = paddle_position_x + paddle_piece 
+                if paddle_piece_x == ball_position_x:
 
-            x = ball.get_velocity().get_x()
-            y = (ball.get_velocity().get_y()) * -1
-            velocity = Point(x,y)
-            ball.set_velocity(velocity)
+                    velocity_y = (ball.get_velocity().get_y()) * -1
+                    velocity_x = (ball.get_velocity().get_x())
+
+                    if velocity_x == 1:
+                        if paddle_piece <= 3:
+                            velocity_x = velocity_x * -1
+                    else:
+                        if paddle_piece >= 9:
+                            velocity_x = velocity_x * -1    
+                    
+                    velocity = Point(velocity_x,velocity_y)
+                    ball.set_velocity(velocity)
 
         
     
